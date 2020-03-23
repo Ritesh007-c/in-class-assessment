@@ -8,5 +8,14 @@ class Portfolio:
         return self.__balance[sym]
     
     def invest(self,sym,qty):
+        if qty<0:
+            raise ValueError('Negative amounts not permitted')
         self.__balance[sym]= self.getBalance(sym)+qty
+    
+    def divest(self,sym,qty):
+        if qty<0:
+            raise ValueError('Negative amounts not permitted')
+        if self.getBalance(sym)<qty:
+            raise ValueError('Insufficient Funds')
+        self.__balance[sym]= self.getBalance(sym)-qty
     
