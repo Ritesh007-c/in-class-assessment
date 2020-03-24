@@ -1,0 +1,278 @@
+#CA Version 1
+while True:  
+    try: 
+        bg = float(input("Welcome To Shopping Basket : ")) 
+        s = bg  
+    except ValueError: 
+        print("PRINT NUMBER AS A AMOUNT") 
+        continue
+    else: 
+        break
+  
+# dictionary to store product("name"), quantity("quant"),  
+a ={"name":[], "quant":[], "discount":[]} 
+   
+b = list(a.values()) 
+  
+na = b[0] 
+  
+qu = b[1] 
+  
+pr = b[2] 
+  
+
+while True: 
+    try: 
+        ch = int(input("1.ADD\n2.EXIT\nEnter your choice : ")) 
+    except ValueError: 
+        print("\nERROR: Choose only digits from the given option") 
+        continue
+    else: 
+        if ch == 1 and s>0:        
+   
+            # input products name           pn = input("Enter product name : ")  
+          
+            q = input("Enter quantity : ") 
+            
+            p = float(input("Enter price of the product : "))   
+  
+            if p>s: 
+                print("\nCAN, T BUT THE PRODUCT")  
+                continue
+  
+            else: 
+                if pn in na:   
+                    ind = na.index(pn)   
+   
+                    qu.remove(qu[ind])  
+  
+                    pr.remove(pr[ind])   
+  
+                    qu.insert(ind, q)    
+   
+                    pr.insert(ind, p)    
+  
+                    s = bg-sum(pr)    
+  
+                    print("\namount left", s) 
+                else:
+                    na.append(pn)   
+   
+                    qu.append(q)    
+  
+                    pr.append(p)     
+  
+                    s = bg-sum(pr)    
+  
+                    print("\namount left", s) 
+  
+        elif s<= 0:  
+            print("\nNO BUDGET")  
+        else: 
+            break 
+  
+# will print amount left in variable 's' 
+print("\nAmount left : Rs.", s)  
+  
+if s in pr:  
+
+    print("\nAmount left can buy you a", na[pr.index(s)])   
+  
+print("\n\n\nGROCERY LIST") 
+  
+for i in range(len(na)):  
+    print(na[i], qu[i], pr[i]) 
+    
+    amt = int(input("Enter Sale Amount: "))
+
+if(amt>0):
+    if amt<=5000:
+       disc = amt*0.05
+    elif amt<=15000:
+        disc=amt*0.12
+    elif amt<=25000:
+        disc=0.2 * amt
+    else:
+         disc=0.3 * amt
+
+    print("Discount : ",disc)
+    print("Net Pay  : ",amt-disc)
+else:
+    print("Invalid Amount")
+
+****************************************************************************************************************************
+
+#CA Version 2
+while True:  
+    try: 
+        bg = float(input("Welcome To Shopping Basket : ")) 
+        s = bg  
+    except ValueError: 
+        print("PRINT NUMBER AS A AMOUNT") 
+        continue
+    else: 
+        break
+  
+# dictionary to store product("name"), quantity("quant"),  
+a ={"name":[], "quant":[], "discount":[]} 
+   
+b = list(a.values()) 
+  
+na = b[0] 
+  
+qu = b[1] 
+  
+pr = b[2] 
+  
+
+while True: 
+    try: 
+        ch = int(input("1.ADD\n2.EXIT\nEnter your choice : ")) 
+    except ValueError: 
+        print("\nERROR: Choose only digits from the given option") 
+        continue
+    else: 
+        if ch == 1 and s>0:        
+   
+            # input products name           pn = input("Enter product name : ")  
+          
+            q = input("Enter quantity : ") 
+            
+            p = float(input("Enter price of the product : "))   
+  
+            if p>s: 
+                print("\nCAN, T BUT THE PRODUCT")  
+                continue
+  
+            else: 
+                if pn in na:   
+                    ind = na.index(pn)   
+   
+                    qu.remove(qu[ind])  
+  
+                    pr.remove(pr[ind])   
+  
+                    qu.insert(ind, q)    
+   
+                    pr.insert(ind, p)    
+  
+                    s = bg-sum(pr)    
+  
+                    print("\namount left", s) 
+                else:
+                    na.append(pn)   
+   
+                    qu.append(q)    
+  
+                    pr.append(p)     
+  
+                    s = bg-sum(pr)    
+  
+                    print("\namount left", s) 
+  
+        elif s<= 0:  
+            print("\nNO BUDGET")  
+        else: 
+            break 
+  
+# will print amount left in variable 's' 
+print("\nAmount left : Rs.", s)  
+  
+if s in pr:  
+
+    print("\nAmount left can buy you a", na[pr.index(s)])   
+  
+print("\n\n\nGROCERY LIST") 
+  
+for i in range(len(na)):  
+    print(na[i], qu[i], pr[i]) 
+    
+    amt = int(input("Enter Sale Amount: "))
+
+if(amt>0):
+    if amt<=5000:
+       disc = amt*0.05
+    elif amt<=15000:
+        disc=amt*0.12
+    elif amt<=25000:
+        disc=0.2 * amt
+    else:
+         disc=0.3 * amt
+
+    print("Discount : ",disc)
+    print("Net Pay  : ",amt-disc)
+else:
+    print("Invalid Amount")
+
+*****************************************************************************************************************************
+
+#CA Final Submission
+items = [('diapers', 10.00), ('peanuts', 5.00), ('butter', 6.25), ('cheese', 
+3.00), ('milk', 3.5), ('yogurt', 1.99), ('eggs', 4.5), ('bread', 4), 
+('shrimp', 2.5), ('coffee', 1.5)]
+
+money = 50
+ask = ('buy', 'return', 'quit')
+cartList = []
+
+while ask != 'quit':
+
+    print("""
+
+        Diapers ....10.00
+        Peanuts ....5.00
+        Butter .....6.25
+        Cheese .....3.00
+        Milk .......3.50
+        Yogurt .....1.99
+        Eggs .......4.50
+        Bread ......4.00
+        Shrimp .....2.50
+        Coffee .....1.50
+        """)
+
+     ask = input('Do you want to buy, return or quit?\n').lower()
+
+     if ask == 'buy':
+         item = input('\nWhat item do you need?\n').lower()
+
+         for i in items:
+             if item == i[0]:
+                 print(item, 'is $', i[1])
+                 ques = input('\nDo you want to buy this item? 
+                 [Y:N]\n').lower()
+
+             if i[1] > money:
+                 print('You do not have enough money for this item :(\n')
+                 break
+
+             if ques == 'n':
+                 print('Sorry that you do not want that item :(')
+                 break
+
+             if ques == 'y':
+                 money = money - i[1]
+                 print('\nYou now have $', money)
+                 cartList.insert(0, item)
+
+                 print('You have these items in your cart:\n', cartList, 
+                 '\n')
+
+             else:
+                print('You entered an wrong value :(')
+
+     if ask == 'return':
+         ret = input('What item do you want to return?\n')
+
+         for i in cartList:
+             if ret == i[0]:
+                 print(i[0], '$', i[1])
+                 quest = input('Do you want to return this item? 
+ [Y:N]]\n').lower()
+
+         else:
+             print('This item is not in your given cart!\n')
+
+
+
+ print('\nThank you for shopping!')
